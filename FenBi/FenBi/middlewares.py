@@ -4,6 +4,7 @@
 #
 # See documentation in:
 # https://doc.scrapy.org/en/latest/topics/spider-middleware.html
+#随机useragent的，下载中间件
 import random
 
 class FenBiUserAgentMiddlewares(object):
@@ -43,12 +44,18 @@ class FenBiUserAgentMiddlewares(object):
             "Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 6.0)",
             "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1)"
         ]
+    #产生请求对象的时候，就会调用这个方法
     def process_request(self, request, spider):
         #随机user_agent
         user_agent = random.choice(self.user_agent_list)
         #设置请求头
-        request['User-Agent'] = user_agent
+        request.headers['User-Agent'] = user_agent
 
+    #验证是否随机,有返回对象的时候就会调用此方法，必须返一个response
+    def process_response(self, request, response, spider):
+        user_agent = request.headers['User-Agent']
+        print(user_agent)
+        return response
 """
 from scrapy import signals
 
