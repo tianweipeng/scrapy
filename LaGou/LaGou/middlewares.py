@@ -39,14 +39,8 @@ class SeleniumMiddleware(object):
                 for key, val in cookie.items():
                     if key == 'name':
                         cookies[cookie[key]] = cookie['value']
+            #将cookie交给scrapy自动处理，开启setting中的COOKIES_ENABLED = True，或者注释掉，默认是开启的
             request.cookies = cookies
-            #print(f"seleniumCookies = {cookies}")
-
-    def process_response(self, request, response, spider):
-        cookie = request.cookies
-        response.cookie = cookie
-        print(cookie)
-        return response
 
 
 
