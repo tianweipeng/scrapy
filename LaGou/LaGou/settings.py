@@ -44,12 +44,12 @@ COOKIES_ENABLED = False
 DEFAULT_REQUEST_HEADERS = {
    'Host': 'www.lagou.com',
    'Origin': 'https://www.lagou.com',
-   'Referer': 'https://www.lagou.com/jobs/list_python?labelWords=sug&fromSearch=true&suginput=py',
-   'ec-Fetch-Mode': 'cors',
+   'Referer': 'https://www.lagou.com/jobs/list_python?labelWords=&fromSearch=true&suginput=',
+   'Sec-Fetch-Mode': 'cors',
    'Sec-Fetch-Site': 'same-origin',
-   'X-Anit-Forge-Code': '0',
-   'X-Anit-Forge-Token': 'None',
-   'X-Requested-With': 'XMLHttpRequest'
+   'X-Requested-With': 'XMLHttpRequest',
+   'X-Anit-Forge-Code': 0
+   'X-Anit-Forge-Token': None
 }
 
 # Enable or disable spider middlewares
